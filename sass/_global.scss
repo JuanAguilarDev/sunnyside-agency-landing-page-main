@@ -1,0 +1,203 @@
+
+
+// Primary Colors
+$Soft-red: hsl(7, 99%, 70%);
+$Yellow: hsl(51, 100%, 49%);
+$Dark-desaturated-cyan: hsl(167, 40%, 24%);
+$Dark-blue: hsl(198, 62%, 26%);
+$Dark-moderate-cyan: hsl(168, 34%, 41%);
+$Light-cyan: #90D4C5;
+
+
+// Neutral Colors
+$Very-dark-desaturated-blue: hsl(212, 27%, 19%);
+$Very-dark-grayish-blue: hsl(213, 9%, 39%);
+$Dark-grayish-blue: hsl(232, 10%, 55%);
+$Grayish-blue: hsl(210, 4%, 67%);
+$White: hsl(0, 0%, 100%);
+
+// Placeholders
+
+@mixin section-img(){
+    picture{
+        width: 100vw;
+        & > img{
+            width: 100%;
+        }
+    }
+}
+
+@mixin section-text($color){
+    .text-container{
+        & > h3{
+            font-size: 40px;
+            font-family: 'Fraunces', sans-serif;
+            font-weight: 900;
+        }
+    
+        & > p{
+            font-size: 20px;
+            font-family: 'Barlow', sans-serif;
+            font-weight: 600;
+            color: $Dark-grayish-blue;
+            margin-bottom: 40px;
+        }
+    
+       .more{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & > a{
+                font-size: 15px;
+                text-decoration: none;
+                font-family: 'Fraunces', sans-serif;
+                font-weight: 900;
+                text-transform: uppercase;
+                color: #000;
+                letter-spacing: 1px;
+            }
+    
+            & > span{
+                position: absolute;
+                bottom: 0;
+                width: 140px;
+                border-radius: 20px;
+                opacity: 0.3;
+                height: 10px;
+                background-color: $color;
+            }
+       }
+    }
+}
+
+@mixin service($url, $color-title, $color-description){
+    height: 100vh;
+    background-image: url($url);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+
+    .service-text{
+        position: absolute;
+        bottom: 0;
+        padding: 0 20px;
+
+        .service-title{
+            font-family: 'Fraunces', sans-serif;
+            text-transform: capitalize;
+            font-size: 25px;
+            font-weight: 900;
+            color: $color-title;
+        }
+
+        .service-description{
+            font-family: 'Fraunces', sans-serif;
+            font-weight: 600;
+            color: $color-description;
+        }
+    }
+}
+
+@mixin about-item($direction, $color){
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: $direction;
+    .section-img{
+        width: 50%;
+        picture{
+            & > img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            }
+        }
+    }            
+    
+    .section-text{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        .text-container{
+            padding: 0 70px;   
+            text-align: start; 
+            & > h3{
+                font-family: 'Fraunces', sans-serif;
+                font-weight: 900;
+                font-size: 40px;
+            }
+
+            & > p{
+                font-size: 18px;
+                font-family: 'Barlow', sans-serif;
+                font-weight: 600;
+                color: $Dark-grayish-blue;
+            }
+
+            .more{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                & > a{
+                    font-size: 15px;
+                    text-decoration: none;
+                    font-family: 'Fraunces', sans-serif;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    color: #000;
+                    letter-spacing: 1px;
+                }
+        
+                & > span{
+                    position: absolute;
+                    bottom: 0;
+                    width: 140px;
+                    border-radius: 20px;
+                    opacity: 0.3;
+                    height: 10px;
+                    background-color: $color;
+                }
+
+                & > a:hover + span{
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+@mixin service-desktop($url, $color-title, $color-description){
+    width: 50%;
+    background-image: url($url);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+
+    .service-text{
+        position: absolute;
+        bottom: 0;
+        padding: 0 20px;
+
+        .service-title{
+            font-family: 'Fraunces', sans-serif;
+            text-transform: capitalize;
+            font-size: 25px;
+            font-weight: 900;
+            color: $color-title;
+        }
+
+        .service-description{
+            font-family: 'Fraunces', sans-serif;
+            font-weight: 600;
+            color: $color-description;
+        }
+    }
+}

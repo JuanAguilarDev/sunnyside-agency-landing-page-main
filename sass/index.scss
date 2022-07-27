@@ -1,0 +1,442 @@
+@use 'global' as *;
+
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap');
+
+// Desktop styles
+header{
+    background-image: url(./images/desktop/image-header.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+// Desktop screen
+@media (min-width: 575px) {
+
+    .navbar{
+        padding: 10px 20px 0 20px;
+
+        .container-fluid{
+
+            .navbar-brand{
+                font-family: 'Barlow', sans-serif;
+                font-weight: bold;
+                font-size: 25px;
+                text-transform: lowercase;
+            }
+
+            .navbar-nav{
+                .nav-item{
+                    text-align: center;
+                    margin: 0 12px;
+                    width: 90px;
+                    border-radius: 20px;
+                }
+
+                .nav-item:hover{
+                    font-weight: bold;
+                    background-color: rgba(255, 255, 255, 0.467);
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    .container{
+        margin-top: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .header-text{
+            font-family: 'Fraunces', sans-serif;
+            font-size: 45px;
+            font-weight: 900;
+            letter-spacing: 8px;
+            color: $White;
+            text-transform: uppercase;
+        }
+
+        .header-arrow{
+            margin-top: 50px;
+        }
+    }
+
+    main{
+        .about{
+            .part-one{        
+                @include about-item(row-reverse, $Yellow)
+            }
+
+            .part-two{
+                @include about-item(row, $Soft-red)
+            }
+        }
+
+        .services{
+            display: flex;
+            height: 100vh;
+            .first-service{
+                @include service-desktop('./images/desktop/image-graphic-design.jpg', $Dark-desaturated-cyan, $Dark-moderate-cyan);
+            }
+            .second-service{
+                @include service-desktop('./images/desktop/image-photography.jpg', $Very-dark-desaturated-blue, $Very-dark-grayish-blue);
+            }
+        }
+
+        
+        .testimonials{
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .title{
+                font-family: 'Barlow', sans-serif;
+                text-transform: uppercase;
+                color: $Grayish-blue;
+                letter-spacing: 2px;
+            }
+
+            .card-container{    
+                display: grid;
+                grid-template: 200px / auto auto auto;
+                .card{
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 350px;
+                    border: none;
+                    
+                    .card-img{
+                        width: 33.333%;
+                        display: flex;
+                        justify-content: center;
+                        margin: 30px;
+                        & > img{
+                            width: 50%;
+                            height: 100%;
+                            border-radius: 50%;
+                        }
+                    }
+                    
+                    .card-text{
+                        .testimonial{
+                            font-family: 'Berlow', sans-serif;
+                            font-weight: bold;
+                            color: $Dark-grayish-blue;
+                            margin-bottom: 30px;
+                        }
+    
+                        .person-name{
+                            font-family: 'Fraunces', sans-serif;
+                            color: $Very-dark-grayish-blue;
+                        }
+    
+                        .person-job{
+                            color: $Grayish-blue;
+                        }  
+                    }
+                }
+            }
+        }    
+
+        
+        .gallery{
+            height: 300px;
+            display: grid;
+            grid-template: repeat(1, 1fr) / repeat(4, 1fr);
+            
+            .gallery-item{
+                picture{
+                    & > img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+    
+    footer{
+        background-color: $Light-cyan;
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            .text-brand{
+                font-family: 'Fraunces', sans-serif;
+                font-weight: 900;
+                font-size: 40px;
+                text-transform: capitalize;
+                color: $Dark-desaturated-cyan;
+            }
+
+            .sections{
+                display: flex;
+                margin-top: -10px !important;
+                justify-content: space-evenly;
+                width: 100%;
+                & > a{
+                    text-decoration: none;
+                    font-family: 'Barlow', sans-serif;
+                    color: $Dark-moderate-cyan;
+                    font-size: 20px;
+                }
+
+                & > a:hover{
+                    color: $White;
+                }
+            }
+
+            .contact{
+                display: flex;
+                margin-top: -10px !important;
+                justify-content: space-evenly;
+                width: 220px;
+
+                & > a:hover > svg > path{
+                    fill: #fff;
+                    
+                }
+            }
+
+            .attribution{
+                font-size: 12px;
+                margin-top: -10px !important;
+                & > a{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+// Mobile Screen
+@media (max-width: 575px) {
+    header{
+        font-family: 'Fraunces', sans-serif;
+        background-image: url(./images/mobile/image-header.jpg);
+
+        .navbar{
+            .container-fluid{
+                padding: 20px;
+                .navbar-brand{
+                    font-weight: 900;
+                }
+                
+
+                .navbar-collapse{
+                    margin: 60px 0;
+                    background-color: $White;
+                    position: relative;
+                    height: 300px;
+                    padding: 15px 0;
+                
+                    .navbar-nav{
+                        display: flex;
+                        height: 270px;
+                        align-items: center;
+                        justify-content: space-evenly;
+                
+                        .nav-item{
+                            display: inline-block;
+                            width: 33.333%;
+                            text-align: center;
+
+                            .nav-link{
+                                border-radius: 20px;
+                                color: rgb(162, 162, 162);
+                            }
+
+                            .nav-link:hover{
+                                background-color: $Yellow;
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+
+                .navbar-collapse:before {
+                    content: "";
+                    position:absolute;
+                    top:-40px;
+                    right:0;
+                    height:40px;
+                    width: 40px;
+                    border-bottom-right-radius: 50%;
+                    background:#3EBFFF;
+                }
+
+                .navbar-collapse:before {
+                    box-shadow: 0 20px 0 0 #fff;
+                }
+            }
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .header-text{
+                margin: 65px 0 65px 0;
+                text-align: center;
+                p{
+                    color: $White;
+                    text-transform: uppercase;
+                    letter-spacing: 7px;
+                    font-size: 45px;
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+
+    main{
+        .about{
+            .part-one{
+                .section-img{
+                    @include section-img();
+                }
+    
+                .section-text{
+                    @include section-text($Yellow);
+                }
+            }
+            .part-two{
+                .section-img{
+                    @include section-img();
+                }
+    
+                .section-text{
+                    @include section-text($Soft-red);
+                }
+            }
+        }
+
+        .services{
+            .first-service{
+                @include service('./images/mobile/image-graphic-design.jpg', $Dark-desaturated-cyan, $Dark-moderate-cyan);
+            }
+            .second-service{
+                @include service('./images/mobile/image-photography.jpg', $Very-dark-desaturated-blue, $Very-dark-grayish-blue);
+            }
+        }
+
+        .testimonials{
+            text-align: center;
+            .title{
+                font-family: 'Barlow', sans-serif;
+                text-transform: uppercase;
+                color: $Grayish-blue;
+                letter-spacing: 2px;
+            }
+
+            .card{
+                flex-direction: column;
+                align-items: center;
+                border: none;
+                margin-bottom: 30px;
+
+                .card-img{
+                    width: 33.333%;
+                    display: flex;
+                    justify-content: center;
+                    margin: 30px;
+                    & > img{
+                        width: 50%;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                }
+                
+                .card-text{
+                    .testimonial{
+                        font-family: 'Berlow', sans-serif;
+                        font-weight: bold;
+                        color: $Dark-grayish-blue;
+                        margin-bottom: 30px;
+                    }
+
+                    .person-name{
+                        font-family: 'Fraunces', sans-serif;
+                        color: $Very-dark-grayish-blue;
+                    }
+
+                    .person-job{
+                        color: $Grayish-blue;
+                    }  
+                }
+            }
+        }
+
+        .gallery{
+            height: 100vh;
+            display: grid;
+            grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+            
+            .gallery-item{
+                picture{
+                    & > img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+    footer{
+        height: 500px;
+        background-color: $Light-cyan;
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            .text-brand{
+                font-family: 'Fraunces', sans-serif;
+                font-weight: 900;
+                font-size: 40px;
+                text-transform: capitalize;
+                color: $Dark-desaturated-cyan;
+            }
+
+            .sections{
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+                & > a{
+                    text-decoration: none;
+                    font-family: 'Barlow', sans-serif;
+                    color: $Dark-moderate-cyan;
+                    font-size: 20px;
+                }
+            }
+
+            .contact{
+                display: flex;
+                justify-content: space-evenly;
+                width: 220px;
+            }
+
+            .attribution{
+                font-size: 12px;
+
+                & > a{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/challenges/sunnyside-agency-landing-page-7yVs3B6ef/hub/sunnyside-agency-landing-page-solution-html-css-sass-Tlc_Jh0Nht)
-- Live Site URL: [Add live site URL here](https://tubular-brioche-b17c15.netlify.app/#services)
+- Solution URL: [Frontendmentor](https://www.frontendmentor.io/challenges/sunnyside-agency-landing-page-7yVs3B6ef/hub/sunnyside-agency-landing-page-solution-html-css-sass-Tlc_Jh0Nht)
+- Live Site URL: [Sunnyside](https://tubular-brioche-b17c15.netlify.app/#services)
 
 ## My process
 
